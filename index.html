@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitap Tavsiye App</title>
+    <title>Kitap Hediye App</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -121,15 +121,15 @@
     </div>
 
     <div id="matchedListContainer">
-        <h2>Eşleşmeler</h2>
+        <h2>Kazananlar</h2>
         <ul id="matchedList"></ul>
     </div>
-    <button id="showMatchedListButton" onclick="showMatchedList()">Tüm Eşleşmeleri Göster</button>
+    <button id="showMatchedListButton" onclick="showMatchedList()">Tüm Kazananları Göster</button>
 
     <script>
         
         var AProfiles = [
-            { name: "İzmir'in seyir defteri", imageUrl: "https://m.media-amazon.com/images/I/41zxftmJcAL._SY445_SX342_.jpg"},
+            { name: "İzmirin seyir defteri", imageUrl: "https://m.media-amazon.com/images/I/41zxftmJcAL._SY445_SX342_.jpg"},
             { name: "Yarım Yüzyıldan Şiirler", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000629153-1.jpg"},
             { name: "Üç Başlı Ejderha", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001960652002-1.jpg"},
             { name: "Yaban", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0002087592001-1.jpg"},
@@ -163,8 +163,8 @@
         var usedBNames = [];
         var matchedList = [];
 
-        // A profil resimlerini oluştur
         var container = document.getElementById("container");
+
         AProfiles.forEach(function(profile) {
             var profileDiv = document.createElement("div");
             profileDiv.classList.add("profile-item");
@@ -189,48 +189,45 @@
                 });
                 usedANames.push(selectedName);
 
-                // Find a matching profile from BProfiles
                 var randomIndex = Math.floor(Math.random() * BProfiles.length);
                 var matchedBProfile = BProfiles[randomIndex];
                 BProfiles.splice(randomIndex, 1);
                 usedBNames.push(matchedBProfile.name);
 
-                matchedList.push(matchedBProfile.name+ " = " + selectedName);
+                matchedList.push(matchedBProfile.name+ ". Kişi " + selectedName);
 
                 if (BProfiles.length === 0) {
                     document.getElementById("showMatchedListButton").style.display = "block";
                 }
 
-                // Show celebration message
                 var celebrationMessage = document.getElementById("celebrationMessage");
-                celebrationMessage.textContent = matchedBProfile.name  + ". kişiye " +  selectedName + " kitabını hediye ediyoruz!";
+                celebrationMessage.textContent = matchedBProfile.name  + ". Kişi " +  selectedName + " kitabını hediye ediyoruz!";
                 document.getElementById("celebrationModal").style.display = "block";
-               
             }
         }
-        var buttonClicked = false; // Butona henüz tıklanmadı
 
-        // Tüm eşleşmeleri göster
+        var buttonClicked = false;
+
         function showMatchedList() {
             var matchedListContainer = document.getElementById("matchedList");
             matchedListContainer.innerHTML = "";
+
+            // Sort matchedList numerically
+            matchedList.sort((a, b) => parseInt(a.split('.')[0]) - parseInt(b.split('.')[0]));
+
             matchedList.forEach(function(match) {
                 var li = document.createElement("li");
                 li.textContent = match;
                 matchedListContainer.appendChild(li);
             });
             document.getElementById("matchedListContainer").style.display = "block";
-            
-            // Butonu gizle sadece bir kez tıklandığında
+
             if (!buttonClicked) {
                 buttonClicked = true;
                 document.getElementById("showMatchedListButton").style.display = "none";
             }
         }
 
-
-
-        // Modal kapatma fonksiyonu
         function closeCelebrationModal() {
             document.getElementById("celebrationModal").style.display = "none";
         }
