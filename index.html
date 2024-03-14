@@ -29,7 +29,7 @@
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
-        
+
         .profile-item.selected {
             filter: brightness(25%);
         }
@@ -127,7 +127,7 @@
     <button id="showMatchedListButton" onclick="showMatchedList()">Tüm Eşleşmeleri Göster</button>
 
     <script>
-        
+
         var AProfiles = [
             { name: "Kürk Mantolu Madonna", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000058245-1.jpg"},
             { name: "Şeker Portakalı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064031-1.jpg"},
@@ -180,7 +180,7 @@
         ];
 
         var BProfiles = [
-            
+
         { name: "1", imageUrl: "https://via.placeholder.com/150?text=1" },
         { name: "2", imageUrl: "https://via.placeholder.com/150?text=2" },
         { name: "3", imageUrl: "https://via.placeholder.com/150?text=3" },
@@ -229,7 +229,9 @@
         { name: "46", imageUrl: "https://via.placeholder.com/150?text=46" },
         { name: "47", imageUrl: "https://via.placeholder.com/150?text=47" },
         { name: "48", imageUrl: "https://via.placeholder.com/150?text=48" }
-    
+
+        ];
+
         var usedANames = [];
         var usedBNames = [];
         var matchedList = [];
@@ -276,7 +278,7 @@
                 var celebrationMessage = document.getElementById("celebrationMessage");
                 celebrationMessage.textContent = matchedBProfile.name  + ". kişiye " +  selectedName + " kitabını tavsiye ediyoruz!";
                 document.getElementById("celebrationModal").style.display = "block";
-               
+
             }
         }
         var buttonClicked = false; // Butona henüz tıklanmadı
@@ -291,7 +293,7 @@
                 matchedListContainer.appendChild(li);
             });
             document.getElementById("matchedListContainer").style.display = "block";
-            
+
             // Butonu gizle sadece bir kez tıklandığında
             if (!buttonClicked) {
                 buttonClicked = true;
