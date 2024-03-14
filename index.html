@@ -23,13 +23,13 @@
         }
 
         .profile-image {
-            width: 100px;
-            height: 140px;
-            border-radius: 1%;
+            width: 200px;
+            height: 300px;
+            border-radius:3%;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
-
+        
         .profile-item.selected {
             filter: brightness(25%);
         }
@@ -127,60 +127,24 @@
     <button id="showMatchedListButton" onclick="showMatchedList()">Tüm Eşleşmeleri Göster</button>
 
     <script>
-
+        
         var AProfiles = [
-            { name: "Kürk Mantolu Madonna", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000058245-1.jpg"},
-            { name: "Şeker Portakalı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064031-1.jpg"},
-            { name: "Hayvan Çiftliği", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001903706001-1.jpg"},
-            { name: "Simyacı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064552-1.jpg"},
-            { name: "İçimizdeki Şeytan", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000058246-1.jpg"},
-            { name: "Kuyucaklı Yusuf", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001851635001-1.jpg"},
-            { name: "Fareler ve İnsanlar", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000411500-1.jpg"},
-            { name: "Bir Ömür Nasıl Yaşanır?", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001796150001-1.jpg"},
-            { name: "Tutunamayanlar", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000061424-1.jpg"},
-            { name: "Martı Jonathan Livingston", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000056587-1.jpg"},
-            { name: "Sırça Köşk", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001792257001-1.jpg"},
-            { name: "Nar Ağacı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000414329-1.jpg"},
-            { name: "Uçurtma Avcısı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000153127-1.jpg"},
-            { name: "Gazi Mustafa Kemal Atatürk", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001740229001-1.jpg"},
-            { name: "Puslu Kıtalar Atlası", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000061857-1.jpg"},
-            { name: "Güneşi Uyandıralım", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001788928001-1.jpg"},
-            { name: "İnce Memed 1", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000147918-1.jpg"},
-            { name: "Değirmen", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000142873-1.jpg"},
-            { name: "Veronika Ölmek İstiyor", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064829-1.jpg"},
-            { name: "Delifişek", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064402-1.jpg"},
-            { name: "Harry Potter ve Felsefe Taşı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000105599-1.jpg"},
-            { name: "Pal Sokağı Çocukları", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0002042077001-1.jpg"},
-            { name: "Fedailerin Kalesi: Alamut", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001946653001-1.jpg"},
-            { name: "Bu Ülke", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000061673-1.jpg"},
-            { name: "Uzun Hikaye", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000148613-1.jpg"},
-            { name: "Fahrenheit 451", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001750151001-1.jpg"},
-            { name: "Bülbülü Öldürmek", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001863920001-1.jpg"},
-            { name: "Gülün Adı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064192-1.jpg"},
-            { name: "Gül Yetiştiren Adam", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000228888-1.jpg"},
-            { name: "Harry Potter ve Sırlar Odası", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000105931-1.jpg"},
-            { name: "İyi Hissetmek", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000202710-1.jpg"},
-            { name: "Beş Şehir", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000027133-1.jpg"},
-            { name: "Nietzsche Ağladığında", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000065453-1.jpg"},
-            { name: "Huzur", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000067770-1.jpg"},
-            { name: "Görmek", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001715597001-1.jpg"},
-            { name: "İnsanın Anlam Arayışı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000303230-1.jpg"},
-            { name: "Gece Yarısı Kütüphanesi", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001922926001-1.jpg"},
-            { name: "İnsan Olmak", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000129350-1.jpg"},
-            { name: "Ağrıdağı Efsanesi", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000147950-1.jpg"},
-            { name: "Yaşamak", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000690250-1.jpg"},
-            { name: "İnci", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000411501-1.jpg"},
-            { name: "Bir İdam Mahkumunun Son Günü", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001949364001-1.jpg"},
-            { name: "1984", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064038-1.jpg"},
-            { name: "Saatleri Ayarlama Enstitüsü", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0002070059001-1.jpg"},
-            { name: "Otomatik Portakal", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001806049001-1.jpg"},
-            { name: "Yeraltından Notlar", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001923470001-1.jpg"},
-            { name: "Kraliçeyi Kurtarmak", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000151838-1.jpg"},
-            { name: "Suç ve Ceza", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001788076001-1.jpg"}
+            { name: "İzmir'in seyir defteri", imageUrl: "https://m.media-amazon.com/images/I/41zxftmJcAL._SY445_SX342_.jpg"},
+            { name: "Yarım Yüzyıldan Şiirler", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000629153-1.jpg"},
+            { name: "Üç Başlı Ejderha", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001960652002-1.jpg"},
+            { name: "Yaban", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0002087592001-1.jpg"},
+            { name: "Yirminci Yüzyıl Ağıtları", imageUrl: "https://static.nadirkitap.com/fotograf/121964/30/Kitap_202212221100051219643.jpg"},
+            { name: "Kuyucaklı Yusuf", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001854957001-1.jpg"},
+            { name: "Dedem ve Oğulları", imageUrl: "https://raw.githubusercontent.com/sakyoll/sakyoll.github.io/main/dede.jpg"},
+            { name: "Vapur Hikayeleri", imageUrl: "https://productimages.hepsiburada.net/s/165/1500/110000126740017.jpg"},
+            { name: "Havada Bulut", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001957183001-1.jpg"},
+            { name: "Sarnıç", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001960654001-1.jpg"},
+            { name: "Mahkeme Kapısı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001948355002-1.jpg"},
+            { name: "Şahmerdan", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001958678001-1.jpg"},
         ];
 
         var BProfiles = [
-
+            
         { name: "1", imageUrl: "https://via.placeholder.com/150?text=1" },
         { name: "2", imageUrl: "https://via.placeholder.com/150?text=2" },
         { name: "3", imageUrl: "https://via.placeholder.com/150?text=3" },
@@ -193,45 +157,8 @@
         { name: "10", imageUrl: "https://via.placeholder.com/150?text=10" },
         { name: "11", imageUrl: "https://via.placeholder.com/150?text=11"},
         { name: "12", imageUrl: "https://via.placeholder.com/150?text=12" },
-        { name: "13", imageUrl: "https://via.placeholder.com/150?text=13" },
-        { name: "14", imageUrl: "https://via.placeholder.com/150?text=14" },
-        { name: "15", imageUrl: "https://via.placeholder.com/150?text=15" },
-        { name: "16", imageUrl: "https://via.placeholder.com/150?text=16" },
-        { name: "17", imageUrl: "https://via.placeholder.com/150?text=17" },
-        { name: "18", imageUrl: "https://via.placeholder.com/150?text=18" },
-        { name: "19", imageUrl: "https://via.placeholder.com/150?text=19" },
-        { name: "20", imageUrl: "https://via.placeholder.com/150?text=20" },
-        { name: "21", imageUrl: "https://via.placeholder.com/150?text=21" },
-        { name: "22", imageUrl: "https://via.placeholder.com/150?text=22" },
-        { name: "23", imageUrl: "https://via.placeholder.com/150?text=23" },
-        { name: "24", imageUrl: "https://via.placeholder.com/150?text=24" },
-        { name: "25", imageUrl: "https://via.placeholder.com/150?text=25" },
-        { name: "26", imageUrl: "https://via.placeholder.com/150?text=26" },
-        { name: "27", imageUrl: "https://via.placeholder.com/150?text=27" },
-        { name: "28", imageUrl: "https://via.placeholder.com/150?text=28" },
-        { name: "29", imageUrl: "https://via.placeholder.com/150?text=29" },
-        { name: "30", imageUrl: "https://via.placeholder.com/150?text=30" },
-        { name: "31", imageUrl: "https://via.placeholder.com/150?text=31" },
-        { name: "32", imageUrl: "https://via.placeholder.com/150?text=32" },
-        { name: "33", imageUrl: "https://via.placeholder.com/150?text=33" },
-        { name: "34", imageUrl: "https://via.placeholder.com/150?text=34" },
-        { name: "35", imageUrl: "https://via.placeholder.com/150?text=35" },
-        { name: "36", imageUrl: "https://via.placeholder.com/150?text=36" },
-        { name: "37", imageUrl: "https://via.placeholder.com/150?text=37" },
-        { name: "38", imageUrl: "https://via.placeholder.com/150?text=38" },
-        { name: "39", imageUrl: "https://via.placeholder.com/150?text=39" },
-        { name: "40", imageUrl: "https://via.placeholder.com/150?text=40" },
-        { name: "41", imageUrl: "https://via.placeholder.com/150?text=41" },
-        { name: "42", imageUrl: "https://via.placeholder.com/150?text=42" },
-        { name: "43", imageUrl: "https://via.placeholder.com/150?text=43" },
-        { name: "44", imageUrl: "https://via.placeholder.com/150?text=44" },
-        { name: "45", imageUrl: "https://via.placeholder.com/150?text=45" },
-        { name: "46", imageUrl: "https://via.placeholder.com/150?text=46" },
-        { name: "47", imageUrl: "https://via.placeholder.com/150?text=47" },
-        { name: "48", imageUrl: "https://via.placeholder.com/150?text=48" }
-
         ];
-
+    
         var usedANames = [];
         var usedBNames = [];
         var matchedList = [];
@@ -276,9 +203,9 @@
 
                 // Show celebration message
                 var celebrationMessage = document.getElementById("celebrationMessage");
-                celebrationMessage.textContent = matchedBProfile.name  + ". kişiye " +  selectedName + " kitabını tavsiye ediyoruz!";
+                celebrationMessage.textContent = matchedBProfile.name  + ". kişiye " +  selectedName + " kitabını hediye ediyoruz!";
                 document.getElementById("celebrationModal").style.display = "block";
-
+               
             }
         }
         var buttonClicked = false; // Butona henüz tıklanmadı
@@ -293,7 +220,7 @@
                 matchedListContainer.appendChild(li);
             });
             document.getElementById("matchedListContainer").style.display = "block";
-
+            
             // Butonu gizle sadece bir kez tıklandığında
             if (!buttonClicked) {
                 buttonClicked = true;
